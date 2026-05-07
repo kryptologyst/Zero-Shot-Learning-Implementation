@@ -1,0 +1,43 @@
+# @package data
+
+_target_: src.data.synthetic_dataset.SyntheticDataset
+
+# Dataset configuration
+dataset_name: "synthetic_zero_shot"
+num_classes: 10
+num_samples_per_class: 100
+image_size: [224, 224]
+num_channels: 3
+
+# Class descriptions for zero-shot learning
+class_descriptions:
+  - "A photo of a cat"
+  - "A photo of a dog"
+  - "A picture of a car"
+  - "A picture of a tree"
+  - "An image of a bird"
+  - "A photo of a horse"
+  - "A picture of a ship"
+  - "A photo of a truck"
+  - "An image of a bicycle"
+  - "A picture of a person"
+
+# Data splits
+train_split: 0.7
+val_split: 0.15
+test_split: 0.15
+
+# Data augmentation
+augmentation:
+  enabled: true
+  horizontal_flip: 0.5
+  rotation: 15
+  brightness: 0.2
+  contrast: 0.2
+  saturation: 0.2
+
+# Data loading
+batch_size: 32
+num_workers: 4
+pin_memory: true
+shuffle: true

@@ -1,0 +1,33 @@
+# @package training
+
+_target_: src.train.trainer.ZeroShotTrainer
+
+# Training configuration
+max_epochs: 10
+learning_rate: 1e-4
+weight_decay: 1e-4
+gradient_clip_val: 1.0
+
+# Optimizer
+optimizer: "adamw"
+scheduler: "cosine"
+
+# Validation
+val_check_interval: 1.0
+check_val_every_n_epoch: 1
+
+# Checkpointing
+save_checkpoint_every_n_epochs: 5
+save_last_checkpoint: true
+save_best_model: true
+monitor_metric: "val_accuracy"
+monitor_mode: "max"
+
+# Early stopping
+early_stopping:
+  enabled: true
+  patience: 5
+  min_delta: 0.001
+
+# Mixed precision
+precision: "16-mixed"

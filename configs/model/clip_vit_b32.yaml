@@ -1,0 +1,24 @@
+# @package model
+
+_target_: src.models.clip_model.CLIPZeroShotModel
+
+model_name: "ViT-B/32"
+device: null  # Will be set automatically
+freeze_vision: false
+freeze_text: false
+temperature: 0.01
+normalize_features: true
+
+# Advanced CLIP variants
+use_open_clip: false
+open_clip_model: "ViT-B-32"
+open_clip_pretrained: "laion2b_s34b_b79k"
+
+# Prompt engineering
+prompt_template: "A photo of a {class_name}"
+use_ensemble_prompts: false
+ensemble_prompts:
+  - "A photo of a {class_name}"
+  - "A picture of a {class_name}"
+  - "An image of a {class_name}"
+  - "A {class_name} in the image"

@@ -1,0 +1,53 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - override /model: clip_vit_b32
+  - override /data: synthetic_dataset
+  - override /training: default_training
+
+# Project metadata
+project_name: "zero-shot-learning"
+version: "1.0.0"
+author: "kryptologyst"
+github_url: "https://github.com/kryptologyst"
+
+# Experiment tracking
+experiment:
+  name: "zero-shot-learning-experiment"
+  tags: ["zero-shot", "clip", "meta-learning"]
+  notes: "Zero-shot learning implementation with CLIP and advanced methods"
+
+# Random seeds for reproducibility
+seed: 42
+deterministic: true
+
+# Device configuration
+device: auto  # auto, cuda, mps, cpu
+
+# Logging
+logging:
+  level: INFO
+  log_dir: "logs"
+  log_every_n_steps: 100
+  save_top_k: 3
+
+# Paths
+paths:
+  data_dir: "data"
+  checkpoint_dir: "checkpoints"
+  output_dir: "outputs"
+  assets_dir: "assets"
+
+# Evaluation
+evaluation:
+  metrics: ["accuracy", "f1_macro", "auroc", "auprc", "calibration_error"]
+  save_predictions: true
+  save_embeddings: true
+  visualize_results: true
+
+# Safety and compliance
+safety:
+  disclaimer: "This is a research/educational demo. Not for production decisions or control."
+  ethics_note: "Ensure proper consent and privacy protection when using with real data."
+  limitations: "Model performance may vary significantly across different domains and distributions."
