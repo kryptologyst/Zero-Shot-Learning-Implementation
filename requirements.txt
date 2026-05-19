@@ -38,4 +38,4 @@ sentence-transformers>=2.2.0
 faiss-cpu>=1.7.4
 hnswlib>=0.7.0
 optuna>=3.3.0
-ray[tune]>=2.6.0
+# ray[tune]>=2.6.0
